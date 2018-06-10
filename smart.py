@@ -1,4 +1,6 @@
 import requests,os
+from pymsgbox import alert
+from bs4 import BeautifulSoup
 tid=os.getenv('TID')
 tgtoken=os.getenv('TG_TOKEN')
 def opens(s=None):
@@ -7,4 +9,7 @@ def opens(s=None):
 	pass
 
 def stg(t):
+	if not (tid and tgtoken) :alert('config telegram')
 	if t:return requests.get(f'https://api.telegram.org/bot332219102:{tgtoken}/sendMessage?chat_id={tid}&text={t}')
+
+
