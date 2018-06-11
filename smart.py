@@ -10,6 +10,6 @@ def opens(s=None):
 
 def stg(t):
 	if not (tid and tgtoken) :alert('config telegram')
-	if t:return requests.get(f'https://api.telegram.org/bot332219102:{tgtoken}/sendMessage?chat_id={tid}&text={t}')
+	if t:return requests.get(f'https://api.telegram.org/bot{tgtoken}/sendMessage?chat_id={tid}&text={t}')
 
 
