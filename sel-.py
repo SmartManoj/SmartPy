@@ -1,3 +1,4 @@
+#run in cmd in interactive py and use exec()
 from selenium import webdriver
 from pymsgbox import *
 from time import *
@@ -8,6 +9,7 @@ import pyperclip,subprocess
 from datetime import datetime
 dn=lambda :(str(datetime.now().time()).split('.')[0])
 un=os.getenv('username')
+if globals()['selp']:selp=='x'
 rk=selp=='x'
 if rk:selp='1'
 fpp=glob(r'C:\Users\{}\AppData\Roaming\Mozilla\Firefox\Profiles\*.selenium{}'.format(un,selp).strip('1'))[0]
