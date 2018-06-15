@@ -1,3 +1,5 @@
+import re
+from time import *
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,8 +14,12 @@ a=r'C:\Windows\Temp\selp.txt'
 a=(open(a). read());exec(a)
 a=r'C:\Windows\Temp\sel{}.txt'.format(selp)
 a=(open(a).read());exec(a)
+bcu=lambda :b.current_url
+def bes(a):
+	a=re.sub(r'(?<!\\)\$','document.querySelector',a)
+	a=a.replace(r'\$','$')
+	return b.execute_script(a)
 
-bes=b.execute_script
 bfc=b.find_element_by_css_selector
 bfcs=b.find_elements_by_css_selector
 bfx=b.find_element_by_xpath
