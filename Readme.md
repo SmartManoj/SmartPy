@@ -9,3 +9,8 @@ stg(text) to send message
 opens() to open the file
 
 opens(module_name) to open the module
+
+
+Selenium:
+First run sel-.py
+then import selq
