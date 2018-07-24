@@ -1,4 +1,5 @@
 #run in cmd in interactive py and use exec()
+#exec(open('sel-.py').read())
 from selenium import webdriver
 from pymsgbox import *
 from time import *
