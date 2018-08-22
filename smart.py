@@ -13,9 +13,10 @@ def opens(s=None):
 def stg(t,tid=tid):
 	if not (tid and tgtoken) :alert('config telegram')
 	if t:return requests.get(f'https://api.telegram.org/bot{tgtoken}/sendMessage?chat_id={tid}&text={t}')
-	
 ctd=lambda :(str(datetime.now()).split('.')[0])
 ct=lambda :(str(datetime.now().time()).split('.')[0])
-parse_post_data=lambda a: [i.split('=') for i in a.splitlines()]
+
+parse_request_header=lambda x: [i.split(': ',1) for i in x.splitlines()[1:]]
+parse_post_data=lambda a: [i.split('=') for i in a.splitlines()] 
 
 
