@@ -6,7 +6,9 @@ from time import sleep
 tid=os.getenv('TID')
 tgtoken=os.getenv('TG_TOKEN')
 def opens(s=None):
-	if type(s)==str and s not in sys.modules:exec('import {s}')
+	print(s in sys.modules)
+	if type(s)==str:
+		s=exec(f'import {s}')
 	r = s.__file__ if s	else __file__
 	os.system(f'subl {r}')
 	pass
@@ -23,5 +25,7 @@ parse_post_data=lambda a: [i.split('=') for i in a.splitlines()]
 
 
 if __name__ == '__main__':
+	opens('tkinter')
+
 	import webbrowser
-	webbrowser.open()
+	# webbrowser.open('https://github.com/SmartManoj/SmartPy/edit/master/smart.py')

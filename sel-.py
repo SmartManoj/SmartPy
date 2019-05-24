@@ -1,5 +1,5 @@
 #run in cmd in interactive py and use exec()
-#exec(open('sel-.py').read())
+#exec(open('D:\Gits\SmartPy\sel-.py').read())
 from selenium import webdriver
 from pymsgbox import *
 from time import *
@@ -13,7 +13,7 @@ un=os.getenv('username')
 if not globals().get('selp'):selp='x'
 rk=selp=='x'
 if rk:selp='1'
-fpp=glob(r'C:\Users\{}\AppData\Roaming\Mozilla\Firefox\Profiles\*.selenium{}'.format(un,selp).strip('1'))[0]
+fpp=glob(r'C:\Users\{}\AppData\Roaming\Mozilla\Firefox\Profiles\*.Sel{}'.format(un,selp))[0]
 def stm():
 	try:
 		b.switch_to_window(b.window_handles[0])
@@ -58,9 +58,10 @@ def copy():
 	print('selp={}'.format(selp),file=open(r'C:\Windows\Temp\selp.txt','w'))
 	_x=b.command_executor._url
 	_c=b.session_id
-	fid=ff()
-	print(fid)
-	sp('nircmd win min process /{}'.format(fid))
+	# fid=ff()
+	fid=None
+	# print(fid)
+	# sp('nircmd win min process /{}'.format(fid))
 	vbvb='''
 url = '{}'
 b = SessionRemote(command_executor=url,desired_capabilities={{}})
@@ -86,7 +87,12 @@ def bb(ch=0):
 	bfxs=b.find_elements_by_xpath
 	globals().update(locals())
 
-
+import re
+bcu=lambda :b.current_url
+def bes(a):
+	a=re.sub(r'(?<!\\)\$','document.querySelector',a)
+	a=a.replace(r'\$','$')
+	return b.execute_script(a)
 
 def bl():
 	b.get('about:blank')
@@ -96,6 +102,7 @@ def bl():
 
 
 bb()
+# copy()
 
 driver=b
 browser=b

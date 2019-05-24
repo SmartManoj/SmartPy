@@ -1,4 +1,4 @@
-Place the file inside python Lib folder
+Run setup.py
 
 In environment variables
 
