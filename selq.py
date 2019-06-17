@@ -26,3 +26,30 @@ bfx=b.find_element_by_xpath
 bfxs=b.find_elements_by_xpath
 driver=b
 browser=b
+# ==========================
+# Use your code below
+# ==========================
+
+if __name__ == '__main__':
+	# b.get('http://google.com')
+	from smart import *
+	# print(opens(webdriver))
+	# alert = driver.switch_to.alert()
+	# print(driver.current_window_handle)
+	# print(driver.window_handles[0])
+	driver.switch_to.default_content()
+	driver.execute_script("alert('qwer');")
+
+	# print(EC.alert_is_present())
+	# alert=browser.switch_to.alert
+	# alert.accept()
+	# sleep(5)
+	# print(b.window_handles)
+	# alert = browser.(b.window_handles)
+	from time import sleep
+	while EC.alert_is_present()(driver):
+		driver.switch_to.window(driver.current_window_handle)
+		sleep(2)
+		print('iruku')
+	   
+	driver.execute_script("alert('qweeer');")
