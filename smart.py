@@ -9,7 +9,7 @@ tgtoken=os.getenv('TG_TOKEN')
 df= r'D:\Gits\SmartPy\smart.py' if u  else __file__
 
 def oe(p):
-	os.system('cmd /k start "" '+p);
+	os.system(f'cmd /k start "" "{p}"');
 def opens(s=None):
 	# print(s in sys.modules)
 	if type(s)==str:
