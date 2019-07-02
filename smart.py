@@ -8,6 +8,20 @@ u=os.getenv('username') =='Smart'
 tgtoken=os.getenv('TG_TOKEN')
 df= r'D:\Gits\SmartPy\smart.py' if u  else __file__
 
+import  win32com.client
+def q(fn,ftype='Excel'):
+	xl = win32com.client.Dispatch(f"{ftype}.Application")
+	for i in xl.Documents:
+		print(i)
+		if str(i)==fn:
+			print(i.Close())
+
+def coa(o,fn):
+	for i in range(2):
+		try:
+			o.save(fn);break
+		except Exception as e:
+			q(fn)
 def oe(p):
 	os.system(f'cmd /k start "" "{p}"');
 def opens(s=None):
@@ -48,7 +62,7 @@ def pkl():
 	return pickle.load(open('tmp','b'))
 	
 def done(t=None):
-	alert('Done',timeout=t)
+	alert(f'Done {__name__}',timeout=t)
 def stg(t,tid=tid):
 	if not (tid and tgtoken) :alert('config telegram')
 	if t:return requests.get(f'https://api.telegram.org/bot{tgtoken}/sendMessage?chat_id={tid}&text={t}')
